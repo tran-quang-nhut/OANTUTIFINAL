@@ -1,13 +1,18 @@
 *{
+
   margin:0;
   padding:0;
+
   box-sizing:border-box;
 
-  -webkit-tap-highlight-color:transparent;
+  -webkit-tap-highlight-color:
+  transparent;
 }
 
 html{
+
   font-size:16px;
+
   -webkit-text-size-adjust:100%;
 }
 
@@ -33,7 +38,7 @@ body{
   position:relative;
 }
 
-/* safe area iphone */
+/* safe area */
 
 .app{
 
@@ -62,9 +67,10 @@ body{
 
   z-index:0;
 
-  opacity:0.45;
+  opacity:0.4;
 
-  animation:float 10s ease-in-out infinite;
+  animation:
+  floating 8s ease-in-out infinite;
 }
 
 .bg1{
@@ -83,13 +89,13 @@ body{
   width:300px;
   height:300px;
 
-  background:#ffd6e5;
+  background:#ffd4e5;
 
   bottom:-120px;
   right:-120px;
 }
 
-@keyframes float{
+@keyframes floating{
 
   0%,100%{
     transform:translateY(0);
@@ -105,7 +111,8 @@ body{
 .container{
 
   position:relative;
-  z-index:10;
+
+  z-index:5;
 
   width:min(100%,480px);
 
@@ -122,13 +129,11 @@ body{
   padding:
   clamp(18px,4vw,35px);
 
+  text-align:center;
+
   box-shadow:
   0 15px 40px rgba(0,0,0,0.2);
-
-  text-align:center;
 }
-
-/* title */
 
 h1{
 
@@ -146,28 +151,23 @@ h1{
 
   opacity:0.9;
 
-  margin-bottom:18px;
-
-  font-size:
-  clamp(14px,3vw,16px);
+  margin-bottom:20px;
 }
-
-/* round */
 
 .round-box{
 
   background:
   rgba(255,255,255,0.15);
 
-  border-radius:16px;
+  color:white;
 
   padding:12px;
 
-  color:white;
+  border-radius:16px;
 
   font-weight:700;
 
-  margin-bottom:25px;
+  margin-bottom:22px;
 }
 
 /* battle */
@@ -193,7 +193,7 @@ h1{
   flex:1;
 
   background:
-  rgba(255,255,255,0.16);
+  rgba(255,255,255,0.15);
 
   border-radius:22px;
 
@@ -220,8 +220,6 @@ h1{
   object-fit:contain;
 }
 
-/* vs */
-
 .vs{
 
   color:white;
@@ -247,7 +245,7 @@ h1{
   clamp(1.1rem,4vw,1.5rem);
 }
 
-/* choices */
+/* buttons */
 
 .choices{
 
@@ -282,17 +280,17 @@ h1{
     #ff5d8f
   );
 
-  box-shadow:
-  0 8px 18px rgba(255,93,143,0.45);
-
   transition:
   transform 0.25s ease;
+
+  box-shadow:
+  0 8px 18px rgba(255,93,143,0.45);
 }
 
 .choice-btn:hover{
 
   transform:
-  translateY(-5px)
+  translateY(-6px)
   scale(1.06);
 }
 
@@ -340,7 +338,6 @@ h1{
 .scoreboard{
 
   display:flex;
-  justify-content:space-between;
 
   gap:10px;
 }
@@ -354,7 +351,7 @@ h1{
 
   border-radius:18px;
 
-  padding:14px 10px;
+  padding:15px 10px;
 
   color:white;
 }
@@ -371,11 +368,12 @@ h1{
   font-weight:700;
 }
 
-/* animation */
+/* battle animation */
 
 .battle-animation{
 
-  animation:battleMove 1s ease;
+  animation:
+  battleMove 1s ease;
 }
 
 @keyframes battleMove{
@@ -458,7 +456,8 @@ h1{
 
   position:relative;
 
-  animation:popupShow 0.4s ease;
+  animation:
+  popupShow 0.4s ease;
 }
 
 @keyframes popupShow{
@@ -483,10 +482,11 @@ h1{
 
   margin-bottom:18px;
 
-  animation:floatImage 2s ease-in-out infinite;
+  animation:
+  popupFloat 2s ease-in-out infinite;
 }
 
-@keyframes floatImage{
+@keyframes popupFloat{
 
   0%,100%{
     transform:translateY(0);
@@ -544,7 +544,8 @@ h1{
 
   font-size:26px;
 
-  animation:sparkle 1s infinite alternate;
+  animation:
+  sparkle 1s infinite alternate;
 }
 
 .sparkles::before{
@@ -585,18 +586,21 @@ h1{
 
   z-index:99999;
 
-  animation:fall linear forwards;
+  animation:
+  confettiFall linear forwards;
 }
 
 .confetti:nth-child(odd){
+
   background:#ffeb3b;
 }
 
 .confetti:nth-child(even){
+
   background:#ff4081;
 }
 
-@keyframes fall{
+@keyframes confettiFall{
 
   0%{
     transform:
@@ -611,15 +615,17 @@ h1{
   }
 }
 
-/* iphone small */
+/* responsive */
 
 @media(max-width:380px){
 
   .score-number{
+
     font-size:1.2rem;
   }
 
   .players{
+
     gap:10px;
   }
 }
@@ -629,18 +635,22 @@ h1{
 @media(max-height:700px){
 
   .app{
+
     padding:12px;
   }
 
   .container{
+
     padding:18px;
   }
 
   .popup-box{
+
     padding:20px;
   }
 
   .popup-image{
+
     width:120px;
   }
 }

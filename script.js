@@ -5,7 +5,7 @@ const choices = {
   scissors:"Scissors.png"
 };
 
-/* scores */
+/* score */
 
 let win = 0;
 let lose = 0;
@@ -50,7 +50,7 @@ document.getElementById("playAgainBtn");
 const roundText =
 document.getElementById("roundText");
 
-/* popups */
+/* popup */
 
 const rewardPopup =
 document.getElementById("rewardPopup");
@@ -64,13 +64,43 @@ document.getElementById("closeReward");
 const closeLose =
 document.getElementById("closeLose");
 
-/* AUDIO */
-/* fix autoplay mobile */
+/* audio */
 
 const battleSound =
-new Audio("battle.mp3");
+document.getElementById(
+  "battleSound"
+);
 
-battleSound.preload = "auto";
+let audioUnlocked = false;
+
+/* unlock mobile audio */
+
+async function unlockAudio(){
+
+  if(audioUnlocked) return;
+
+  try{
+
+    battleSound.muted = true;
+
+    await battleSound.play();
+
+    battleSound.pause();
+
+    battleSound.currentTime = 0;
+
+    battleSound.muted = false;
+
+    audioUnlocked = true;
+  }
+
+  catch(err){
+
+    console.log(
+      "Audio unlock failed"
+    );
+  }
+}
 
 document.addEventListener(
   "touchstart",
@@ -83,19 +113,6 @@ document.addEventListener(
   unlockAudio,
   { once:true }
 );
-
-function unlockAudio(){
-
-  battleSound.play()
-  .then(() => {
-
-    battleSound.pause();
-
-    battleSound.currentTime = 0;
-
-  })
-  .catch(() => {});
-}
 
 /* random */
 
@@ -112,7 +129,7 @@ function randomChoice(){
   ];
 }
 
-/* GAME */
+/* game */
 
 async function playGame(playerChoice){
 
@@ -124,7 +141,8 @@ async function playGame(playerChoice){
 
   isPlaying = true;
 
-  battleArea.style.display = "block";
+  battleArea.style.display =
+  "block";
 
   resultText.innerHTML =
   "⏳ Đang ra kéo búa bao...";
@@ -132,18 +150,29 @@ async function playGame(playerChoice){
   playAgainBtn.style.display =
   "none";
 
-  /* sound */
-
-  battleSound.pause();
-
-  battleSound.currentTime = 0;
+  /* play sound */
 
   try{
-    await battleSound.play();
-  }
-  catch(e){}
 
-  /* animation 3 seconds */
+    battleSound.pause();
+
+    battleSound.currentTime = 0;
+
+    const promise =
+    battleSound.play();
+
+    if(promise !== undefined){
+
+      await promise;
+    }
+  }
+
+  catch(err){
+
+    console.log(err);
+  }
+
+  /* 3 second animation */
 
   for(let i = 0; i < 3; i++){
 
@@ -183,7 +212,7 @@ async function playGame(playerChoice){
     );
   }
 
-  /* real result */
+  /* result */
 
   const computerChoices = [
     "rock",
@@ -209,7 +238,7 @@ async function playGame(playerChoice){
 
   let result = "";
 
-  /* DRAW */
+  /* draw */
 
   if(playerChoice === computerChoice){
 
@@ -218,7 +247,7 @@ async function playGame(playerChoice){
     draw++;
   }
 
-  /* WIN */
+  /* win */
 
   else if(
 
@@ -243,7 +272,7 @@ async function playGame(playerChoice){
     launchConfetti();
   }
 
-  /* LOSE */
+  /* lose */
 
   else{
 
@@ -263,7 +292,7 @@ async function playGame(playerChoice){
   playAgainBtn.style.display =
   "inline-block";
 
-  /* WIN POPUP */
+  /* win popup */
 
   if(win >= TARGET_WIN){
 
@@ -280,7 +309,7 @@ async function playGame(playerChoice){
     },700);
   }
 
-  /* LOSE POPUP */
+  /* lose popup */
 
   else if(
 
@@ -322,7 +351,7 @@ playAgainBtn.addEventListener(
   }
 );
 
-/* close popup */
+/* popup close */
 
 closeReward.addEventListener(
   "click",

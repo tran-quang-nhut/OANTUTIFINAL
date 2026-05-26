@@ -16,6 +16,16 @@
     "
   >
 
+  <meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+  >
+
+  <meta
+    name="mobile-web-app-capable"
+    content="yes"
+  >
+
   <title>
     Khu tự trị của Nhựt
   </title>
@@ -31,23 +41,21 @@
   <div class="bg-circle bg1"></div>
   <div class="bg-circle bg2"></div>
 
-  <!-- main -->
+  <!-- app -->
 
   <main class="app">
 
     <div class="container">
-
-      <!-- title -->
 
       <h1>
         🎮 Thắng tui thử đuyy!
       </h1>
 
       <p class="subtitle">
-        Thắng Nhựt 3 game sẽ được sít rịt!
+        Thắng tui 3 game sẽ được sít rịt!
       </p>
 
-      <!-- round -->
+      <!-- rounds -->
 
       <div class="round-box">
 
@@ -87,11 +95,13 @@
 
           </div>
 
+          <!-- vs -->
+
           <div class="vs">
             VS
           </div>
 
-          <!-- computer -->
+          <!-- machine -->
 
           <div class="player-card">
 
@@ -123,14 +133,13 @@
 
       </div>
 
-      <!-- buttons -->
+      <!-- choices -->
 
       <div class="choices">
 
         <button
           class="choice-btn"
           onclick="playGame('rock')"
-          aria-label="Rock"
         >
 
           <img
@@ -143,7 +152,6 @@
         <button
           class="choice-btn"
           onclick="playGame('paper')"
-          aria-label="Paper"
         >
 
           <img
@@ -156,7 +164,6 @@
         <button
           class="choice-btn"
           onclick="playGame('scissors')"
-          aria-label="Scissors"
         >
 
           <img
@@ -185,9 +192,9 @@
 
         <div class="score-item">
 
-          <span>
+          <div>
             🏆
-          </span>
+          </div>
 
           <div class="score-label">
             Thắng
@@ -204,9 +211,9 @@
 
         <div class="score-item">
 
-          <span>
+          <div>
             💀
-          </span>
+          </div>
 
           <div class="score-label">
             Thua
@@ -223,9 +230,9 @@
 
         <div class="score-item">
 
-          <span>
+          <div>
             🤝
-          </span>
+          </div>
 
           <div class="score-label">
             Hòa
@@ -268,7 +275,7 @@
       </h2>
 
       <p>
-        Bạn đã thắng 3 trận
+        Bạn đã thắng đủ 3 trận
         và nhận được phần thưởng!
       </p>
 
@@ -300,7 +307,7 @@
       </h2>
 
       <p>
-        Bạn đã hết 10 lượt
+        Bạn đã hết 10 lượt chơi
         nhưng chưa đạt đủ 3 chiến thắng!
       </p>
 
@@ -311,6 +318,21 @@
     </div>
 
   </div>
+
+  <!-- audio -->
+
+  <audio
+    id="battleSound"
+    preload="auto"
+    playsinline
+  >
+
+    <source
+      src="battle.mp3"
+      type="audio/mpeg"
+    >
+
+  </audio>
 
   <script src="script.js"></script>
 
