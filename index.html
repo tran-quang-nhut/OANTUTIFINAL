@@ -7,7 +7,13 @@
 
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0"
+    content="
+      width=device-width,
+      initial-scale=1,
+      maximum-scale=1,
+      user-scalable=no,
+      viewport-fit=cover
+    "
   >
 
   <title>
@@ -22,199 +28,223 @@
 
   <!-- background -->
 
-  <div class="bg-blur"></div>
-  <div class="bg-blur2"></div>
+  <div class="bg-circle bg1"></div>
+  <div class="bg-circle bg2"></div>
 
-  <!-- container -->
+  <!-- main -->
 
-  <div class="container">
+  <main class="app">
 
-    <h1>
-      🎮 Thắng cái cho tiền
-    </h1>
+    <div class="container">
 
-    <p class="subtitle">
-      Thắng Nhựt 3 game và sẽ được sít rịt!
-    </p>
+      <!-- title -->
 
-    <!-- rounds -->
+      <h1>
+        🎮 Thắng tui thử đuyy!
+      </h1>
 
-    <div class="round-info">
+      <p class="subtitle">
+        Thắng Nhựt 3 game sẽ được sít rịt!
+      </p>
 
-      Lượt:
-      <span id="roundText">
-        0 / 10
-      </span>
+      <!-- round -->
 
-    </div>
+      <div class="round-box">
 
-    <!-- battle -->
+        <span>
+          Lượt chơi:
+        </span>
 
-    <div
-      class="battle-area"
-      id="battleArea"
-    >
+        <span id="roundText">
+          0 / 10
+        </span>
 
-      <div class="players">
+      </div>
 
-        <!-- player -->
+      <!-- battle -->
 
-        <div class="player-box">
+      <section
+        class="battle-area"
+        id="battleArea"
+      >
 
-          <div class="player-title">
-            Bạn
+        <div class="players">
+
+          <!-- player -->
+
+          <div class="player-card">
+
+            <div class="player-title">
+              Bạn
+            </div>
+
+            <img
+              id="playerChoiceImg"
+              class="choice-img"
+              src=""
+              alt=""
+            >
+
           </div>
 
+          <div class="vs">
+            VS
+          </div>
+
+          <!-- computer -->
+
+          <div class="player-card">
+
+            <div class="player-title">
+              Nhựt
+            </div>
+
+            <img
+              id="computerChoiceImg"
+              class="choice-img"
+              src=""
+              alt=""
+            >
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- result -->
+
+      <div
+        class="result"
+        id="result"
+      >
+
+        Chọn vũ khí của bạn 👇
+
+      </div>
+
+      <!-- buttons -->
+
+      <div class="choices">
+
+        <button
+          class="choice-btn"
+          onclick="playGame('rock')"
+          aria-label="Rock"
+        >
+
           <img
-            id="playerChoiceImg"
-            class="choice-img"
-            src=""
+            src="Rock.png"
             alt=""
           >
 
-        </div>
+        </button>
 
-        <div class="vs">
-          VS
-        </div>
-
-        <!-- computer -->
-
-        <div class="player-box">
-
-          <div class="player-title">
-            Nhựt
-          </div>
+        <button
+          class="choice-btn"
+          onclick="playGame('paper')"
+          aria-label="Paper"
+        >
 
           <img
-            id="computerChoiceImg"
-            class="choice-img"
-            src=""
+            src="Paper.png"
             alt=""
           >
 
+        </button>
+
+        <button
+          class="choice-btn"
+          onclick="playGame('scissors')"
+          aria-label="Scissors"
+        >
+
+          <img
+            src="Scissors.png"
+            alt=""
+          >
+
+        </button>
+
+      </div>
+
+      <!-- continue -->
+
+      <button
+        class="continue-btn"
+        id="playAgainBtn"
+      >
+
+        🔄 Chơi tiếp
+
+      </button>
+
+      <!-- scoreboard -->
+
+      <div class="scoreboard">
+
+        <div class="score-item">
+
+          <span>
+            🏆
+          </span>
+
+          <div class="score-label">
+            Thắng
+          </div>
+
+          <div
+            class="score-number"
+            id="winScore"
+          >
+            0
+          </div>
+
+        </div>
+
+        <div class="score-item">
+
+          <span>
+            💀
+          </span>
+
+          <div class="score-label">
+            Thua
+          </div>
+
+          <div
+            class="score-number"
+            id="loseScore"
+          >
+            0
+          </div>
+
+        </div>
+
+        <div class="score-item">
+
+          <span>
+            🤝
+          </span>
+
+          <div class="score-label">
+            Hòa
+          </div>
+
+          <div
+            class="score-number"
+            id="drawScore"
+          >
+            0
+          </div>
+
         </div>
 
       </div>
 
     </div>
 
-    <!-- result -->
-
-    <div
-      class="result"
-      id="result"
-    >
-
-      Chọn vũ khí của bạn 👇
-
-    </div>
-
-    <!-- choices -->
-
-    <div class="choices">
-
-      <button
-        class="btn-choice"
-        onclick="playGame('rock')"
-      >
-
-        <img
-          src="Rock.png"
-          alt=""
-        >
-
-      </button>
-
-      <button
-        class="btn-choice"
-        onclick="playGame('paper')"
-      >
-
-        <img
-          src="Paper.png"
-          alt=""
-        >
-
-      </button>
-
-      <button
-        class="btn-choice"
-        onclick="playGame('scissors')"
-      >
-
-        <img
-          src="Scissors.png"
-          alt=""
-        >
-
-      </button>
-
-    </div>
-
-    <!-- play again -->
-
-    <button
-      class="play-again"
-      id="playAgainBtn"
-    >
-
-      🔄 Chơi tiếp
-
-    </button>
-
-    <!-- scoreboard -->
-
-    <div class="scoreboard">
-
-      <div class="score-item">
-
-        <span>
-          🏆 Thắng
-        </span>
-
-        <span
-          class="score-number"
-          id="winScore"
-        >
-          0
-        </span>
-
-      </div>
-
-      <div class="score-item">
-
-        <span>
-          💀 Thua
-        </span>
-
-        <span
-          class="score-number"
-          id="loseScore"
-        >
-          0
-        </span>
-
-      </div>
-
-      <div class="score-item">
-
-        <span>
-          🤝 Hòa
-        </span>
-
-        <span
-          class="score-number"
-          id="drawScore"
-        >
-          0
-        </span>
-
-      </div>
-
-    </div>
-
-  </div>
+  </main>
 
   <!-- WIN POPUP -->
 
@@ -225,7 +255,7 @@
 
     <div class="popup-box">
 
-      <div class="popup-fireworks"></div>
+      <div class="sparkles"></div>
 
       <img
         src="reward.png"
@@ -238,7 +268,7 @@
       </h2>
 
       <p>
-        Bạn đã chiến thắng 3 trận
+        Bạn đã thắng 3 trận
         và nhận được phần thưởng!
       </p>
 
@@ -270,7 +300,7 @@
       </h2>
 
       <p>
-        Bạn đã hết 10 lượt chơi
+        Bạn đã hết 10 lượt
         nhưng chưa đạt đủ 3 chiến thắng!
       </p>
 

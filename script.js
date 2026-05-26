@@ -50,7 +50,7 @@ document.getElementById("playAgainBtn");
 const roundText =
 document.getElementById("roundText");
 
-/* popup */
+/* popups */
 
 const rewardPopup =
 document.getElementById("rewardPopup");
@@ -64,10 +64,38 @@ document.getElementById("closeReward");
 const closeLose =
 document.getElementById("closeLose");
 
-/* sound */
+/* AUDIO */
+/* fix autoplay mobile */
 
 const battleSound =
 new Audio("battle.mp3");
+
+battleSound.preload = "auto";
+
+document.addEventListener(
+  "touchstart",
+  unlockAudio,
+  { once:true }
+);
+
+document.addEventListener(
+  "click",
+  unlockAudio,
+  { once:true }
+);
+
+function unlockAudio(){
+
+  battleSound.play()
+  .then(() => {
+
+    battleSound.pause();
+
+    battleSound.currentTime = 0;
+
+  })
+  .catch(() => {});
+}
 
 /* random */
 
@@ -84,7 +112,7 @@ function randomChoice(){
   ];
 }
 
-/* play game */
+/* GAME */
 
 async function playGame(playerChoice){
 
@@ -106,11 +134,16 @@ async function playGame(playerChoice){
 
   /* sound */
 
+  battleSound.pause();
+
   battleSound.currentTime = 0;
 
-  battleSound.play();
+  try{
+    await battleSound.play();
+  }
+  catch(e){}
 
-  /* 3 second animation */
+  /* animation 3 seconds */
 
   for(let i = 0; i < 3; i++){
 
@@ -221,8 +254,6 @@ async function playGame(playerChoice){
 
   resultText.innerHTML = result;
 
-  /* update score */
-
   winScore.innerHTML = win;
 
   loseScore.innerHTML = lose;
@@ -232,7 +263,7 @@ async function playGame(playerChoice){
   playAgainBtn.style.display =
   "inline-block";
 
-  /* win popup */
+  /* WIN POPUP */
 
   if(win >= TARGET_WIN){
 
@@ -246,10 +277,10 @@ async function playGame(playerChoice){
 
       launchConfetti();
 
-    },800);
+    },700);
   }
 
-  /* lose popup */
+  /* LOSE POPUP */
 
   else if(
 
@@ -266,13 +297,13 @@ async function playGame(playerChoice){
         "show"
       );
 
-    },800);
+    },700);
   }
 
   isPlaying = false;
 }
 
-/* play again */
+/* continue */
 
 playAgainBtn.addEventListener(
   "click",
