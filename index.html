@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Khu tự trị của Nhựt
+  </title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <!-- background -->
+
+  <div class="bg-blur"></div>
+  <div class="bg-blur2"></div>
+
+  <!-- container -->
+
+  <div class="container">
+
+    <h1>
+      🎮 Thắng cái cho tiền
+    </h1>
+
+    <p class="subtitle">
+      Thắng Nhựt 3 game và sẽ được sít rịt!
+    </p>
+
+    <!-- rounds -->
+
+    <div class="round-info">
+
+      Lượt:
+      <span id="roundText">
+        0 / 10
+      </span>
+
+    </div>
+
+    <!-- battle -->
+
+    <div
+      class="battle-area"
+      id="battleArea"
+    >
+
+      <div class="players">
+
+        <!-- player -->
+
+        <div class="player-box">
+
+          <div class="player-title">
+            Bạn
+          </div>
+
+          <img
+            id="playerChoiceImg"
+            class="choice-img"
+            src=""
+            alt=""
+          >
+
+        </div>
+
+        <div class="vs">
+          VS
+        </div>
+
+        <!-- computer -->
+
+        <div class="player-box">
+
+          <div class="player-title">
+            Nhựt
+          </div>
+
+          <img
+            id="computerChoiceImg"
+            class="choice-img"
+            src=""
+            alt=""
+          >
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- result -->
+
+    <div
+      class="result"
+      id="result"
+    >
+
+      Chọn vũ khí của bạn 👇
+
+    </div>
+
+    <!-- choices -->
+
+    <div class="choices">
+
+      <button
+        class="btn-choice"
+        onclick="playGame('rock')"
+      >
+
+        <img
+          src="Rock.png"
+          alt=""
+        >
+
+      </button>
+
+      <button
+        class="btn-choice"
+        onclick="playGame('paper')"
+      >
+
+        <img
+          src="Paper.png"
+          alt=""
+        >
+
+      </button>
+
+      <button
+        class="btn-choice"
+        onclick="playGame('scissors')"
+      >
+
+        <img
+          src="Scissors.png"
+          alt=""
+        >
+
+      </button>
+
+    </div>
+
+    <!-- play again -->
+
+    <button
+      class="play-again"
+      id="playAgainBtn"
+    >
+
+      🔄 Chơi tiếp
+
+    </button>
+
+    <!-- scoreboard -->
+
+    <div class="scoreboard">
+
+      <div class="score-item">
+
+        <span>
+          🏆 Thắng
+        </span>
+
+        <span
+          class="score-number"
+          id="winScore"
+        >
+          0
+        </span>
+
+      </div>
+
+      <div class="score-item">
+
+        <span>
+          💀 Thua
+        </span>
+
+        <span
+          class="score-number"
+          id="loseScore"
+        >
+          0
+        </span>
+
+      </div>
+
+      <div class="score-item">
+
+        <span>
+          🤝 Hòa
+        </span>
+
+        <span
+          class="score-number"
+          id="drawScore"
+        >
+          0
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- WIN POPUP -->
+
+  <div
+    class="popup"
+    id="rewardPopup"
+  >
+
+    <div class="popup-box">
+
+      <div class="popup-fireworks"></div>
+
+      <img
+        src="reward.png"
+        class="popup-image"
+        alt=""
+      >
+
+      <h2>
+        🎉 CHÚC MỪNG 🎉
+      </h2>
+
+      <p>
+        Bạn đã chiến thắng 3 trận
+        và nhận được phần thưởng!
+      </p>
+
+      <button id="closeReward">
+        Nhận thưởng
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- LOSE POPUP -->
+
+  <div
+    class="popup"
+    id="losePopup"
+  >
+
+    <div class="popup-box">
+
+      <img
+        src="lose.png"
+        class="popup-image"
+        alt=""
+      >
+
+      <h2>
+        😢 THẤT BẠI
+      </h2>
+
+      <p>
+        Bạn đã hết 10 lượt chơi
+        nhưng chưa đạt đủ 3 chiến thắng!
+      </p>
+
+      <button id="closeLose">
+        Đóng
+      </button>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
